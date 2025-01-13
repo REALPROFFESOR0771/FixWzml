@@ -17,12 +17,15 @@ from faulthandler import enable as faulthandler_enable
 from socket import setdefaulttimeout
 from logging import getLogger, Formatter, FileHandler, StreamHandler, INFO, basicConfig, error as log_error, info as log_info, warning as log_warning
 from uvloop import install
+from pyrogram import utils as pyroutils
 
 faulthandler_enable()
 install()
 setdefaulttimeout(600)
 
 botStartTime = time()
+pyroutils.MIN_CHAT_ID = -999999999999
+pyroutils.MIN_CHANNEL_ID = -100999999999999
 
 basicConfig(format="[%(asctime)s] [%(levelname)s] - %(message)s", #  [%(filename)s:%(lineno)d]
             datefmt="%d-%b-%y %I:%M:%S %p",
