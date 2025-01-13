@@ -175,6 +175,7 @@ async def join_files(path):
             for file_ in files:
                 if re_search(fr"{res}\.0[0-9]+$", file_):
                     await aioremove(f'{path}/{file_}')
+                            
 async def edit_metadata(listener, base_dir: str, media_file: str, outfile: str, metadata: str = ''):
     cmd = [bot_cache['pkgs'][2], '-hide_banner', '-ignore_unknown', '-i', media_file, '-metadata', f'title={metadata}', '-metadata:s:v',
            f'title={metadata}', '-metadata:s:a', f'title={metadata}', '-metadata:s:s', f'title={metadata}', '-map', '0:v:0?',
